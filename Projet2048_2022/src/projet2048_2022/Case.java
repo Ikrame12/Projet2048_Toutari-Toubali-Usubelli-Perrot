@@ -7,8 +7,8 @@ package projet2048_2022;
 
 /**
  *
- * @author ikrame
+ * @author ikram
  */
-public class Joueur {
+public class Case {
     
 }

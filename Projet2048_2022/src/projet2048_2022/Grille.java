@@ -7,15 +7,8 @@ package projet2048_2022;
 
 /**
  *
- * @author ikrame
+ * @author ikram
  */
-public class Projet2048_2022 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Grille {
     
 }
