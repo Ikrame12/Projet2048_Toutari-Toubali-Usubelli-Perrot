@@ -9,7 +9,7 @@ package projet2048_2022;
  *
  * @author ikrame
  */
-public class main {
+public class Main {
 
     /**
      * @param args the command line arguments
