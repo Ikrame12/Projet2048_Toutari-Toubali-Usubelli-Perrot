@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller=".FXMLDocumentController">
    <children>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="178.0" layoutY="155.0" prefHeight="233.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <GridPane fx:id="Grille" alignment="CENTER" gridLinesVisible="true" layoutX="178.0" layoutY="155.0" prefHeight="233.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -33,14 +33,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </GridPane>
-      <Pane blendMode="COLOR_BURN" layoutX="102.0" layoutY="30.0" prefHeight="61.0" prefWidth="157.0" style="-fx-background-color: red;">
+      <Pane fx:id="fond" blendMode="COLOR_BURN" layoutX="102.0" layoutY="30.0" prefHeight="61.0" prefWidth="157.0" style="-fx-background-color: red;">
          <children>
             <Label layoutX="54.0" layoutY="4.0" text="Moves" textFill="#fffdfd">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="75.0" layoutY="31.0" text="0" textFill="WHITE">
+            <Label fx:id="score" layoutX="75.0" layoutY="31.0" text="0" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

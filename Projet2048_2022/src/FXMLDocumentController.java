@@ -102,6 +102,10 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(MouseEvent event) {
         System.out.println("Clic de souris sur le bouton menu");
+        try {
+            score.setText(Integer.toString(Integer.parseInt(score.getText()) + 1));
+            } catch (NumberFormatException nfe) {//...
+        }
     }
 
     @FXML
