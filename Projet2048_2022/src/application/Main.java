@@ -1,4 +1,7 @@
+package application;
 
+
+import application.Application;
 import java.io.IOException;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
