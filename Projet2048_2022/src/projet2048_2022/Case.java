@@ -9,6 +9,7 @@ package projet2048_2022;
  *
  * @author ikram
  */
+<<<<<<< Updated upstream
     public class Case implements Parametres { 
  private int x, y, valeur;    
  private Grille grille;// on déclare une grille de type Grille en privée
@@ -63,6 +64,11 @@ public boolean equals(Object obj){
 //commentaires 
 public int hashCode(){
 return this.x*7 + this.y*13;
+=======
+public class Case {
+    
+    
+>>>>>>> Stashed changes
 }
  
 //commentaires 
