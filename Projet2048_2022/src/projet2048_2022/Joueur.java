@@ -11,4 +11,11 @@ package projet2048_2022;
  */
 public class Joueur {
     
+    private final String pseudo; 
+    
+    private int score;
+    
+    private String classement;
+    
+    
 }
