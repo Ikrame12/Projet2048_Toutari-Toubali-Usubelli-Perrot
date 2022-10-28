@@ -16,6 +16,10 @@ public class Joueur {
     private int score;
     
     private String classement;
+
+    public Joueur() {
+        this.pseudo = null;
+    }
     
     
 }
