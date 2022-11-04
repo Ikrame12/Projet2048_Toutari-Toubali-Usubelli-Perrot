@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet2048_2022;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +15,7 @@ import java.util.Random;
  * @author ikram
  */
 public class Grille implements Parametres {
-  private final HashSet<Case> grille;
+  private final HashSet<Tuile> grille;
     private int valeurMax = 0;
     private boolean deplacement;
 
@@ -23,10 +23,10 @@ public class Grille implements Parametres {
         this.grille = new HashSet<>();
     }
 
-    @Override
+ 
     public String toString() {
         int[][] tableau = new int[TAILLE][TAILLE];
-        for (Case c : this.grille) {
+        for (Tuile c : this.grille) {
             tableau[c.getY()][c.getX()] = c.getValeur();
         }
         String result = "";
@@ -49,7 +49,7 @@ public class Grille implements Parametres {
         return result;
     }*/
 
-    public HashSet<Case> getGrille() {
+    public HashSet<Tuile> getGrille() {
         return grille;
     }
 
@@ -61,7 +61,7 @@ public class Grille implements Parametres {
         if (this.grille.size() < TAILLE * TAILLE) {
             return false;
         } else {
-            for (Case c : this.grille) {
+            for (Tuile c : this.grille) {
                 for (int i = 1; i <= 2; i++) {
                     if (c.getVoisinDirect(i) != null) {
                         if (c.valeurEgale(c.getVoisinDirect(i))) {
@@ -75,7 +75,7 @@ public class Grille implements Parametres {
     }
 
     public boolean lanceurDeplacerCases(int direction) {
-        Case[] extremites = this.getCasesExtremites(direction);
+        Tuile[] extremites = this.getCasesExtremites(direction);
         deplacement = false; // pour vérifier si on a bougé au moins une case après le déplacement, avant d'en rajouter une nouvelle
         for (int i = 0; i < TAILLE; i++) {
             switch (direction) {
@@ -96,7 +96,7 @@ public class Grille implements Parametres {
         return deplacement;
     }
 
-    private void fusion(Case c) {
+    private void fusion(Tuile c) {
         c.setValeur(c.getValeur() * 2);
         if (this.valeurMax < c.getValeur()) {
             this.valeurMax = c.getValeur();
@@ -104,7 +104,7 @@ public class Grille implements Parametres {
         deplacement = true;
     }
 
-    private void deplacerCasesRecursif(Case[] extremites, int rangee, int direction, int compteur) {
+    private void deplacerCasesRecursif(Tuile[] extremites, int rangee, int direction, int compteur) {
         if (extremites[rangee] != null) {
             if ((direction == HAUT && extremites[rangee].getY() != compteur)
                     || (direction == BAS && extremites[rangee].getY() != TAILLE - 1 - compteur)
@@ -128,7 +128,7 @@ public class Grille implements Parametres {
                 this.grille.add(extremites[rangee]);
                 deplacement = true;
             }
-            Case voisin = extremites[rangee].getVoisinDirect(-direction);
+            Tuile voisin = extremites[rangee].getVoisinDirect(-direction);
             if (voisin != null) {
                 if (extremites[rangee].valeurEgale(voisin)) {
                     this.fusion(extremites[rangee]);
@@ -150,9 +150,9 @@ public class Grille implements Parametres {
     * Si direction = GAUCHE : retourne les 4 cases qui sont le plus à gauche (une pour chaque ligne)
     * Attention : le tableau retourné peut contenir des null si les lignes/colonnes sont vides
      */
-    public Case[] getCasesExtremites(int direction) {
-        Case[] result = new Case[TAILLE];
-        for (Case c : this.grille) {
+    public Tuile[] getCasesExtremites(int direction) {
+        Tuile[] result = new Tuile[TAILLE];
+        for (Tuile c : this.grille) {
             switch (direction) {
                 case HAUT:
                     if ((result[c.getX()] == null) || (result[c.getX()].getY() > c.getY())) { // si on n'avait pas encore de case pour cette rangée ou si on a trouvé un meilleur candidat
@@ -191,20 +191,20 @@ public class Grille implements Parametres {
 
     public boolean nouvelleCase() {
         if (this.grille.size() < TAILLE * TAILLE) {
-            ArrayList<Case> casesLibres = new ArrayList<>();
+            ArrayList<Tuile> casesLibres = new ArrayList<>();
             Random ra = new Random();
             int valeur = (1 + ra.nextInt(2)) * 2;
             // on crée toutes les cases encore libres
             for (int x = 0; x < TAILLE; x++) {
                 for (int y = 0; y < TAILLE; y++) {
-                    Case c = new Case(x, y, valeur);
+                    Tuile c = new Tuile(x, y, valeur);
                     if (!this.grille.contains(c)) { // contains utilise la méthode equals dans Case
                         casesLibres.add(c);
                     }
                 }
             }
             // on en choisit une au hasard et on l'ajoute à la grille
-            Case ajout = casesLibres.get(ra.nextInt(casesLibres.size()));
+            Tuile ajout = casesLibres.get(ra.nextInt(casesLibres.size()));
             ajout.setGrille(this);
             System.out.println(ajout);
             this.grille.add(ajout);

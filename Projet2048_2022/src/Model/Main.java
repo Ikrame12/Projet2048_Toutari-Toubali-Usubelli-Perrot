@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet2048_2022;
+package Model;
 
 import java.util.Scanner;
 
@@ -18,8 +18,11 @@ public class Main implements Parametres {
      */
     public static void main(String[] args) {
        // TODO code application logic here
+        Grilles g1 = new Grilles();
+        g1.affich();
         Grille g = new Grille();
         boolean b = g.nouvelleCase();
+        
         b = g.nouvelleCase();
         System.out.println(g);
         Scanner sc = new Scanner(System.in);
@@ -63,6 +66,7 @@ public class Main implements Parametres {
             }
         }
         g.gameOver();
+        
         /*
         // Bout de code pour tester manuellement si une grille contient une case ou pas
         Scanner sc = new Scanner(System.in);

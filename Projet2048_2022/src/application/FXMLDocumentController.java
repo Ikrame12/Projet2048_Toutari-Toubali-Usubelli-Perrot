@@ -15,14 +15,14 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import projet2048_2022.Grille;
+import Model.Grille;
 
 /**
  * FXML Controller class
  *
  * @author hp
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDocumentController {
 
     
     /*
@@ -45,7 +45,6 @@ public class FXMLDocumentController implements Initializable {
     private int x = 24, y = 191;
     private int objectifx = 24, objectify = 191;
 
-    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
