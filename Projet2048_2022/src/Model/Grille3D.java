@@ -15,16 +15,16 @@ import java.util.List;
  *
  * @author hp
  */
-public class Grilles extends Grille {    
+public class Grille3D extends Grille {    
   final Grille tab[]; 
    //on choisit un tableau parceque on un nombre précis d'éléments (3G)
-   public Grilles() {//le constructeur de la méthode
+   public Grille3D() {//le constructeur de la méthode
         this.tab = new Grille[3];
    
   }
    
 // la grille golbale hérite de Grille
-    //tableau qui contient le strois grilles ensemble
+//tableau qui contient le strois grilles ensemble
 
    
 
@@ -34,6 +34,7 @@ public  void  affich(){
    for (int i = 0; i < tab.length; i++){
           System.out.println(tab[i]);
      }
+   
   
   }     
 }  

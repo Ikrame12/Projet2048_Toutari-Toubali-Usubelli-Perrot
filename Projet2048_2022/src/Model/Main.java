@@ -18,13 +18,8 @@ public class Main implements Parametres {
      */
     public static void main(String[] args) {
        // TODO code application logic here
-        Grilles g1 = new Grilles();
-        g1.affich();
-        Grille g = new Grille();
-        boolean b = g.nouvelleCase();
-        
-        b = g.nouvelleCase();
-        System.out.println(g);
+        Grille3D g = new Grille3D();
+        g.affich();
         Scanner sc = new Scanner(System.in);
         /*System.out.println("X:");
         int x= sc.nextInt();
@@ -35,7 +30,7 @@ public class Main implements Parametres {
         Case c = new Case(x,y,valeur);
         g.getGrille().remove(c);
         System.out.println(g);*/
-        
+        /*
         while (!g.partieFinie()) {
             System.out.println("Déplacer vers la Droite (d), Gauche (g), Haut (h), ou Bas (b) ?");
             String s = sc.nextLine();
