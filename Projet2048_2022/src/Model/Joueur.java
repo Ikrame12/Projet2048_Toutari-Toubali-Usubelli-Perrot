@@ -12,11 +12,8 @@ package Model;
 public class Joueur {
     
     private final String pseudo; 
-    
     private int score;
-    
     private String classement;
-
     public Joueur() {
         this.pseudo = null;
     }

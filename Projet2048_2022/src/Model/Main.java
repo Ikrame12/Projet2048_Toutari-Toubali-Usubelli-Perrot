@@ -32,7 +32,7 @@ public class Main implements Parametres {
         System.out.println(g);*/
         /*
         while (!g.partieFinie()) {
-            System.out.println("Déplacer vers la Droite (d), Gauche (g), Haut (h), ou Bas (b) ?");
+            System.out.println("Deplacer vers la Droite (d), Gauche (g), Haut (h), ou Bas (b) ?");
             String s = sc.nextLine();
             s.toLowerCase();
             if (!(s.equals("d") || s.equals("droite")
@@ -61,6 +61,8 @@ public class Main implements Parametres {
             }
         }
         g.gameOver();
+        
+        
         
         /*
         // Bout de code pour tester manuellement si une grille contient une case ou pas
