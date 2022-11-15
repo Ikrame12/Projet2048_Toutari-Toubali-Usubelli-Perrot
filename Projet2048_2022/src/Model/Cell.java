@@ -7,22 +7,22 @@ package Model;
 
 /**
  *
- * @author ikram
+ * @author ikrame
  */
 
-    public class Tuile implements Parametres { 
+    public class Cell implements Parametres { 
  private int x, y, valeur;    
- private Grille grille;// on déclare une grille de type Grille en privée
+ private Grid3D grille;// on déclare une grille de type Grid3D en privée
 
- //Constructeur de la classe "Case"
- public Tuile(int abs, int ord, int v){
+ //Constructeur de la classe "Cell"
+ public Cell(int abs, int ord, int v){
  this.x=abs;
  this.y=ord;
  this.valeur=v;
  }
  
  //Création des setters et des getters
- public void setGrille(Grille g){
+ public void setGrille(Grid3D g){
  this.grille=g;
  }
  
@@ -52,8 +52,8 @@ package Model;
 
      @Override
 public boolean equals(Object obj){
-    if(obj instanceof Tuile){
-    Tuile c= (Tuile) obj;
+    if(obj instanceof Cell){
+    Cell c= (Cell) obj;
     return (this.x==c.x && this.y==c.y);
     }
     else{
@@ -61,26 +61,22 @@ public boolean equals(Object obj){
     }
 }
 
-//commentaires 
 public int hashCode(){
 return this.x*7 + this.y*13;
-
 }
- 
-//commentaires 
- public boolean valeurEgale(Tuile c){
+
+ public boolean valeurEgale(Cell c){
  if (c != null){
  return this.valeur ==c.valeur;
  }else {
  return false;
  }
  }
- 
  //comentaires
- public Tuile getVoisinDirect(int direction){
+ public Cell getVoisinDirect(int direction){
      if (direction == HAUT){
      for(int i = this.y -1 ; i>=0; i--){
-       for (Tuile c : grille.getGrille()) {
+       for (Cell c : grille.getGrille()) {
                     if (c.getX() == this.x && c.getY() == i){ 
      return c;
      }
@@ -89,7 +85,7 @@ return this.x*7 + this.y*13;
      }
      else if (direction == BAS){
              for(int i= this.y +1; i<TAILLE; i++){
-             for (Tuile c : grille.getGrille()){
+             for (Cell c : grille.getGrille()){
              if(c.getX()== this.x && c.getY() == i){
              return c;
              }
@@ -98,7 +94,7 @@ return this.x*7 + this.y*13;
              }
      else if (direction == GAUCHE){
      for(int i = this.x -1; i>=0; i--){
-     for (Tuile c : grille.getGrille()){
+     for (Cell c : grille.getGrille()){
      if (c.getX()==i && c.getY()== this.y){
      return c;
      }
@@ -107,7 +103,7 @@ return this.x*7 + this.y*13;
      }
      else if (direction == DROITE){
      for (int i = this.x +1 ; i<TAILLE; i++){
-     for (Tuile c : grille.getGrille()){
+     for (Cell c : grille.getGrille()){
      if (c.getX()== i && c.getY() == this.y){
      return c;
              }

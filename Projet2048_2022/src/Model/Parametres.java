@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author ikram
+ * @author ikrame
  */
 public interface Parametres {
     static final int HAUT = 1;
