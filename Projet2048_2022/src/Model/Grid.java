@@ -15,6 +15,11 @@ import java.util.logging.Logger;
  * @author hp
  */
 public class Grid implements Parametres{
+
+    public Grid(HashSet<Cell> grille, boolean deplacement) {
+        this.grille = grille;
+        this.deplacement = deplacement;
+    }
     //classe qui représente une grille 
     private final HashSet<Cell> grille;
     private int valeurMax = 0;

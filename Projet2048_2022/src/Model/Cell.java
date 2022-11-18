@@ -12,7 +12,7 @@ package Model;
 
     public class Cell implements Parametres { 
  private int x, y, valeur;    
- private Grid3D grille;// on déclare une grille de type Grid3D en privée
+ private Grid grille;// on déclare une grille de type Grid3D en privée
 
  //Constructeur de la classe "Cell"
  public Cell(int abs, int ord, int v){
@@ -22,7 +22,7 @@ package Model;
  }
  
  //Création des setters et des getters
- public void setGrille(Grid3D g){
+ public void setG(Grid g){
  this.grille=g;
  }
  
@@ -72,47 +72,7 @@ return this.x*7 + this.y*13;
  return false;
  }
  }
- //comentaires
- public Cell getVoisinDirect(int direction){
-     if (direction == HAUT){
-     for(int i = this.y -1 ; i>=0; i--){
-       for (Cell c : grille.getGrille()) {
-                    if (c.getX() == this.x && c.getY() == i){ 
-     return c;
-     }
-     }    
-     }
-     }
-     else if (direction == BAS){
-             for(int i= this.y +1; i<TAILLE; i++){
-             for (Cell c : grille.getGrille()){
-             if(c.getX()== this.x && c.getY() == i){
-             return c;
-             }
-             }
-             }
-             }
-     else if (direction == GAUCHE){
-     for(int i = this.x -1; i>=0; i--){
-     for (Cell c : grille.getGrille()){
-     if (c.getX()==i && c.getY()== this.y){
-     return c;
-     }
-     }
-     }
-     }
-     else if (direction == DROITE){
-     for (int i = this.x +1 ; i<TAILLE; i++){
-     for (Cell c : grille.getGrille()){
-     if (c.getX()== i && c.getY() == this.y){
-     return c;
-             }
-     }
-     }
-     }
  
- return null;
- }
  
  
  
