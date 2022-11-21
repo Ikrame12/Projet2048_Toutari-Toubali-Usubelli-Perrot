@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.StringJoiner;
+
 /**
  *
  * @author ikrame
@@ -77,11 +79,14 @@ return this.x*7 + this.y*13;
  
  
  // Redéfinition de la méthode String
- @Override
- public String toString(){
- return "Case("+this.x + "," +this.y +"," + this.valeur + ")";
- }
- 
+    public String toString() {
+        StringJoiner output = new StringJoiner("");
+        output.add("______________\n");
+        output.add("Case :\n");
+        output.add(super.toString() + "\n");
+        output.add("value : " + valeur);
+        return output.toString();
+    }
 }
 
 

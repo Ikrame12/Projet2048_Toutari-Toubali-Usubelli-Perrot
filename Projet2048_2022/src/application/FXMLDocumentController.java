@@ -37,7 +37,7 @@ public class FXMLDocumentController {
     private Pane fond; // panneau recouvrant toute la fenêtre
 
     // variable globale pour initialiser le modèle
-    private Grid3D grilleModele = new Grid3D();
+   
 
     // variables globales non définies dans la vue (fichier .fxml)
     private final Pane p = new Pane(); // panneau utilisé pour dessiner une tuile "2"

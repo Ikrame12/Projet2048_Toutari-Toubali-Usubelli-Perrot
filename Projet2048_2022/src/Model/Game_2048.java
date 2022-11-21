@@ -4,9 +4,9 @@
  */
 package Model;
 
-import static Model.Parametres.gridSize;
+
 import java.util.Arrays;
-import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -14,31 +14,38 @@ import java.util.Scanner;
  * @author hp
  */
 public class Game_2048 implements Parametres {
-    
-    Grid3D g = new Grid3D();  
-    long score;
-    long coup_jouer;
-    List<Cell> Move_tried;
+    Grid[] grille = new Grid[gridSize];
+    Grid3D g = new Grid3D(grille);  
     
     
     
+    /*public void initJeu (){
+        //initialisation des grilles 
+        for (Grid grille1 : grille) {
+            /*boucle des grilles */
+            //grille1 = new Grid();
+        //}
+ 
     /*Display*/
     
+    @SuppressWarnings("empty-statement")
     public void DisplayPlateau(){
+        
+        for (Grid grille1 :grille) {
+        grille1 = new Grid();   
         int[][] tab1= new int[gridSize][gridSize];
-        g.getGrille().getGrille().forEach(c -> {
-            tab1[c.getY()][c.getX()] = c.getValeur();
-        });
-        for (int i = 0; i < 3; i++){  
+        for(Cell c : grille1.getCells()) {
+        tab1[c.getY()][c.getX()] = c.getValeur();
+        
+        };
         System.out.print(Arrays.deepToString(tab1) +"\t"+"\n");
         }
     }
-    
     public void Start(){
-            System.out.println("Déplacer vers la Droite (d), Gauche (g), Haut (h), ou Bas (b) ?");
+        
+             
             Scanner sc = new Scanner(System.in);
                     String s = sc.nextLine();
-            s.toLowerCase();
             if (!(s.equals("d") || s.equals("droite")
                     || s.equals("g") || s.equals("gauche")
                     || s.equals("h") || s.equals("haut")
@@ -52,24 +59,35 @@ public class Game_2048 implements Parametres {
                         + "D pour pofondeur à droite");
             } else {
                 int direction;
-                if (s.equals("d") || s.equals("droite")) {
-                    direction = RIGHT;
-                } else if (s.equals("g") || s.equals("gauche")) {
-                    direction = LEFT;
-                } else if (s.equals("h") || s.equals("haut")) {
-                    direction = UP;
-                } else if (s.equals("b") || s.equals("Bas")) {
-                    direction = DOWN;
-                } else if (s.equals("G")) {
-                    direction = PRO_LEFT;
-                } else {
-                    direction = PRO_RIGHT;
+                switch (s) {
+                    case "d":
+                    case "droite":
+                        direction = RIGHT;
+                        break;
+                    case "g":
+                    case "gauche":
+                        direction = LEFT;
+                        break;
+                    case "h":
+                    case "haut":
+                        direction = UP;
+                        break;
+                    case "b":
+                    case "Bas":
+                        direction = DOWN;
+                        break;
+                    case "G":
+                        direction = PRO_LEFT;
+                        break;
+                    default:
+                        direction = PRO_RIGHT;
+                        break;
                 }
-                
-                System.out.println(g);
                 
             }
         }
+
+
         
 }
 

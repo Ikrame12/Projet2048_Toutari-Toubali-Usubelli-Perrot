@@ -6,6 +6,11 @@ package Model;
 
 ;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.logging.Logger;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.logging.Logger;
@@ -16,30 +21,35 @@ import java.util.logging.Logger;
  */
 public class Grid implements Parametres{
 
-    public Grid(HashSet<Cell> grille, boolean deplacement) {
-        this.grille = grille;
-        this.deplacement = deplacement;
-    }
+
+        
+    
     //classe qui représente une grille 
-    private final HashSet<Cell> grille;
+    private final HashSet<Cell> Cells = new HashSet<>();
     private int valeurMax = 0;
-    private boolean deplacement;
+    boolean depacement = false ;
 
     public Grid() {
-        this.grille = new HashSet<>();
+        var ra = new Random();
+            int x = ra.nextInt(4);
+            int y = ra.nextInt(4);
+        for (Cell c : this.Cells){
+            if(x==c.getX()||y==c.getY())  {
+                c.setValeur(2);
+            }
+        }
     }
+
+
     /*  Getters  */
-    public HashSet<Cell> getGrille() {
-        return grille;
+    public HashSet<Cell> getCells() {
+        return Cells;
     }
 
     public int getValeurMax() {
         return valeurMax;
     }
 
-    public boolean isDeplacement() {
-        return deplacement;
-    }
 
     public static Logger getLOG() {
         return LOG;
@@ -52,9 +62,7 @@ public class Grid implements Parametres{
         this.valeurMax = valeurMax;
     }
 
-    public void setDeplacement(boolean deplacement) {
-        this.deplacement = deplacement;
-    }
+ 
     //Méthodes des mouvements 
     private void fusion(Cell c) {
      c.setValeur(c.getValeur() * 2);
@@ -66,7 +74,7 @@ public class Grid implements Parametres{
     
     public Cell[] getCellBorders(int direction) {
         Cell[] result = new Cell[gridSize];
-        for (Cell c : this.grille) {
+        for (Cell c : this.Cells) {
             switch (direction) {
                 case UP -> {
                     if ((result[c.getX()] == null) || (result[c.getX()].getY() > c.getY())) { // si on n'avait pas encore de case pour cette rangée ou si on a trouvé un meilleur candidat
@@ -95,8 +103,8 @@ public class Grid implements Parametres{
         return result;
     }
      public boolean newCell() {
-        //  on ajoute un nombre aléatoire si y a des cases libres 
-        if (this.getGrille().size() < gridSize * gridSize) {
+        //on ajoute un nombre aléatoire si y a des cases libres 
+        if (this.getCells().size() < gridSize * gridSize) {
             ArrayList<Cell> casesLibres = new ArrayList<>();
             Random ra = new Random();
             int valeur = (1 + ra.nextInt(2)) * 2;
@@ -104,7 +112,7 @@ public class Grid implements Parametres{
             for (int x = 0; x < gridSize; x++) {
                 for (int y = 0; y < gridSize; y++) {
                     Cell c = new Cell(x, y, valeur);
-                    if (!this.getGrille().contains(c)) { // contains utilise la méthode equals 
+                    if (!this.getCells().contains(c)) { // contains utilise la méthode equals 
                         casesLibres.add(c);
                     }
                 }
@@ -113,14 +121,29 @@ public class Grid implements Parametres{
             Cell ajout = casesLibres.get(ra.nextInt(casesLibres.size()));
             ajout.setG(this);
             System.out.println(ajout);
-            this.getGrille().add(ajout);
-            if ((this.getGrille().size() == 1) || (this.valeurMax == 2 && ajout.getValeur() == 4)) { // Mise à jour de la valeur maximale présente dans la grille si c'est la première case ajoutée ou si on ajoute un 4 et que l'ancien max était 2
+            this.getCells().add(ajout);
+            if ((this.getCells().size() == 1) || (this.valeurMax == 2 && ajout.getValeur() == 4)) { // Mise à jour de la valeur maximale présente dans la grille si c'est la première case ajoutée ou si on ajoute un 4 et que l'ancien max était 2
                 this.valeurMax = ajout.getValeur();
             }
             return true;
         } else {
             return false;
         }
-    }  
+    }
+     
+     
+    
+     @Override
+    public String toString() {
+        int[][] tableau = new int[gridSize][gridSize];
+        this.Cells.forEach(c -> {
+            tableau[c.getY()][c.getX()] = c.getValeur();
+        });
+        String result = "";
+        for (int[] tableau1 : tableau) {
+            result += Arrays.toString(tableau1) + "\n";
+        }
+        return result;
+    }
     
 }

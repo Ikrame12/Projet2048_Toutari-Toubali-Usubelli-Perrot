@@ -18,7 +18,8 @@ public class Launch implements Parametres {
      */
     public static void main(String[] args) {
        // TODO code application logic here
-        Scanner sc = new Scanner(System.in);
+       Game_2048 jeu = new Game_2048();
+       jeu.DisplayPlateau();
     }
     
 }
