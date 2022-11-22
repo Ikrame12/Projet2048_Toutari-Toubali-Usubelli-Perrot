@@ -128,7 +128,7 @@ public class Grid implements Parametres{
             // on en choisit une au hasard et on l'ajoute à la grille
             Cell ajout = casesLibres.get(ra.nextInt(casesLibres.size()));
             ajout.setG(this);
-            System.out.println(ajout);
+            //System.out.println(ajout);
             this.getCells().add(ajout);
             if ((this.getCells().size() == 1) || (this.valeurMax == 2 && ajout.getValeur() == 4)) { // Mise à jour de la valeur maximale présente dans la grille si c'est la première case ajoutée ou si on ajoute un 4 et que l'ancien max était 2
                 this.valeurMax = ajout.getValeur();
