@@ -28,7 +28,7 @@ public class Grid implements Parametres{
     final HashSet<Cell> Cells = new HashSet<>();
     private int valeurMax = 0;
     boolean deplacement = false ;
-
+ //constructeur
     public void Grid() {
           setCells(Cells);
           deplacement = false ;
@@ -115,7 +115,7 @@ public class Grid implements Parametres{
         if (this.getCells().size() < gridSize * gridSize) {
             ArrayList<Cell> casesLibres = new ArrayList<>();
             Random ra = new Random();
-            int valeur = (1 + ra.nextInt(2)) * 2;
+            int valeur = (1 + ra.nextInt(2)) * 2; //les nombres générés sont soit 0 soit 1 et il nous donne alors 2 ou 4 après l'ajout de 1 et la multiplication par 2
             // on crée toutes les cases encore libres
             for (int x = 0; x < gridSize; x++) {
                 for (int y = 0; y < gridSize; y++) {

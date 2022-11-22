@@ -16,7 +16,7 @@ import java.util.StringJoiner;
  *
  * @author hp
  */
-public class Game_2048 implements Parametres {
+public class Game_2048 implements Parametres { //classe qui va initialser ce qu'il va se passer lors du jeu 
     Grid[] grille ;
     Grid3D g ;  
     long score;
@@ -33,14 +33,14 @@ public class Game_2048 implements Parametres {
  
     /*Display*/
     
-    public Game_2048(){
+    public Game_2048(){ //initialisation de la grille de jeu 3D (tableau contenant les 3 grilles)
     grille = new Grid[gridSize];
     g = new Grid3D(grille);
      
     }   
 
     @SuppressWarnings(value = "empty-statement")
-    public void DisplayPlateau() {
+    public void DisplayPlateau() { //méthode pour afficher la grille 3D
         for(Grid grille1 : grille)  {
             grille1 = new Grid();
             int[][] tab1= new int[gridSize][gridSize];
@@ -53,7 +53,7 @@ public class Game_2048 implements Parametres {
         }
     }   
     
-     public  void init_game() {
+     public  void init_game() { //méthode pour initialiser les différentes cases
         for (Grid grille1 : grille) {
             grille1= new Grid();
             for(int i=0;i< gridSize;i++) {
@@ -93,46 +93,53 @@ public class Game_2048 implements Parametres {
         }
         return true;
     }
-    public void Start(){
+    public void Start(){ //méthode pour commencer le jeu
         
-             
+            System.out.print("Veuillez choisir votre direction:"
+                    + " - d " + " - g " + " - h " + " - b "+ " - G " + " - D ");
             Scanner sc = new Scanner(System.in);
+            
                     String s = sc.nextLine();
             if (!(s.equals("d") || s.equals("droite")
                     || s.equals("g") || s.equals("gauche")
                     || s.equals("h") || s.equals("haut")
                     || s.equals("b") || s.equals("bas"))) {
-                System.out.println("Vous devez écrire"
-                        + "d pour Droite, "
-                        + "g pour Gauche, "
-                        + "h pour Haut  "
-                        + "b pour Bas"
-                        + "G pour profondeur à gauche"
-                        + "D pour pofondeur à droite");
+                System.out.println("Vous devez ecrire "
+                        + "d pour Droite "
+                        + "\n"
+                        + "g pour Gauche "
+                        + "\n"
+                        + "h pour Haut "
+                        + "\n"
+                        + "b pour Bas "
+                        + "\n"
+                        + "G pour profondeur a gauche "
+                        + ""
+                        + "D pour pofondeur a droite");
             } else {
                 int direction;
                 switch (s) {
                     case "d":
                     case "droite":
-                        direction = RIGHT;
+                        direction = 2;
                         break;
                     case "g":
                     case "gauche":
-                        direction = LEFT;
+                        direction = -2;
                         break;
                     case "h":
                     case "haut":
-                        direction = UP;
+                        direction = 1;
                         break;
                     case "b":
                     case "Bas":
-                        direction = DOWN;
+                        direction = -1;
                         break;
                     case "G":
-                        direction = PRO_LEFT;
+                        direction = 5;
                         break;
                     default:
-                        direction = PRO_RIGHT;
+                        direction = 2;
                         break;
                 }
                 

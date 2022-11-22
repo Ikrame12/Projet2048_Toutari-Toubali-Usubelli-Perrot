@@ -9,7 +9,7 @@ package Model;
  *
  * @author ikrame
  */
-public interface Parametres {
+public interface Parametres { //initialisation des paramètres de déplacement
     static final int UP = 1;
     static final int RIGHT = 2;
     static final int DOWN  = -1;

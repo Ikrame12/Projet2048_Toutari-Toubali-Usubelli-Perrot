@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author ikrame
  */
-public class Grid3D implements Parametres {
+public class Grid3D implements Parametres { //classe pour initialiser la grille 3D
     
     private Grid[] Plateau = new Grid[gridSize];
     
@@ -22,14 +22,14 @@ public class Grid3D implements Parametres {
     
     private final int valeurMax = 0;
 
-    public Grid3D(Grid[] Plateau) {
+    public Grid3D(Grid[] Plateau) { //méthode pour afficher le plateau
         this.Plateau = Plateau ;
     }
 
    
 
     
-    public void DisplayGrid() {
+    public void DisplayGrid() { 
         for (Grid Plateau1 : Plateau) {
             int[][] tableau = new int[gridSize][gridSize];
             Plateau1.getCells().forEach(c -> {

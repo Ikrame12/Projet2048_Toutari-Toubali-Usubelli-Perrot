@@ -21,9 +21,9 @@ import java.util.StringJoiner;
 
  //Constructeur de la classe "Cell"
  public Cell(int abs, int ord, int v){
- this.x=abs;
- this.y=ord;
- this.valeur=v;
+ this.x=abs; //déplacement horizontal
+ this.y=ord; //déplacement vertical 
+ this.valeur=v; //valeur de la case
  }
  
  //Création des setters et des getters
@@ -66,11 +66,16 @@ public boolean equals(Object obj){
     }
 }
 
-public int hashCode(){
+    /**
+     *
+     * @return
+     */
+    @Override
+public int hashCode(){ //déclaration du hashcode
 return this.x*7 + this.y*13;
 }
 
- public boolean valeurEgale(Cell c){
+ public boolean valeurEgale(Cell c){ //méthode pour indiquer que faire si valeur égale entre 2 cases
  if (c != null){
  return this.valeur ==c.valeur;
  }else {
