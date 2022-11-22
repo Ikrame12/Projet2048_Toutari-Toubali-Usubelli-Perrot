@@ -13,7 +13,10 @@ import java.util.StringJoiner;
  */
 
     public class Cell implements Parametres { 
- private int x, y, valeur;    
+    
+        int x;
+        int y;    
+    private int valeur;
  private Grid grille;// on déclare une grille de type Grid3D en privée
 
  //Constructeur de la classe "Cell"
@@ -74,6 +77,7 @@ return this.x*7 + this.y*13;
  return false;
  }
  }
+
  
  
  

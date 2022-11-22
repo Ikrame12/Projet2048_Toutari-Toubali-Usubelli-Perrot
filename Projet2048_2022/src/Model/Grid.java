@@ -25,11 +25,20 @@ public class Grid implements Parametres{
         
     
     //classe qui représente une grille 
-    private final HashSet<Cell> Cells = new HashSet<>();
+    final HashSet<Cell> Cells = new HashSet<>();
     private int valeurMax = 0;
-    boolean depacement = false ;
+    boolean deplacement = false ;
 
-    public Grid() {
+    public void Grid() {
+          setCells(Cells);
+          deplacement = false ;
+    }
+    public void setCells(HashSet<Cell> Cells){
+        for(int i=0;i< gridSize;i++) {
+                for(int j=0;j<gridSize;j++){
+                Cell C = new Cell(i,j,0);
+                this.Cells.add(C);    
+                }
         var ra = new Random();
             int x = ra.nextInt(4);
             int y = ra.nextInt(4);
@@ -39,8 +48,7 @@ public class Grid implements Parametres{
             }
         }
     }
-
-
+    }
     /*  Getters  */
     public HashSet<Cell> getCells() {
         return Cells;
