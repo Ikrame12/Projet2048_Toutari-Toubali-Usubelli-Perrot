@@ -5,12 +5,17 @@
 package Model;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.StringJoiner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,18 +45,19 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
     }   
 
     @SuppressWarnings(value = "empty-statement")
-    public void DisplayPlateau() { //méthode pour afficher la grille 3D
+    public void DisplayPlateau() { //méthode qui affiche le plateau du jeu et ajoute une case libre aléatoirement 
+
         for(Grid grille1 : grille)  {
-            grille1 = new Grid();
-            int[][] tab1= new int[gridSize][gridSize];
-            for(Cell c : grille1.getCells()) {
-                tab1[c.getY()][c.getX()] = c.getValeur();
-                
+            grille1 = new Grid();// on crée
+            boolean b = grille1.newCell(); // on choisit une cass
+            int[][] tab1= new int[gridSize][gridSize];//on crée le tableau d'affichage
+            for(Cell c : grille1.getCells()) { //parcourir le hashset 
+                tab1[c.getY()][c.getX()] = c.getValeur();// récuperer la valeur
             };
+
             System.out.print(Arrays.deepToString(tab1) +"\t"+"\n");
-            
         }
-    }   
+    } 
     
      public  void init_game() { //méthode pour initialiser les différentes cases
         for (Grid grille1 : grille) {
@@ -69,41 +75,26 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
         
       }
                     
-   private boolean addCell(int nbtuiles) {
-        for (int i = 0; i < nbtuiles; i++) {
-            // Liste de possibiliter
-            List<Cell> possibiliter = new ArrayList<Cell>();
-            Cell OnePosition;
-            // Ajout de toutes les tuile vide dans la liste
-            for(Grid grille1 : grille){
-                for(Cell C : grille1.Cells){
-                  if(C.getValeur()==0) {
-                   OnePosition = new Cell(C.x, C.y,0); 
-                   possibiliter.add(OnePosition);
-                  } 
-                }
-            }
-            // ? Si il n'y a pas de possibliter fin du jeu ?
-            if (possibiliter.size() == 0)
-                return false;
-            Random rand = new Random();
-            int newvalue = rand.nextInt(4) >= 2 ? 2 : 4;
-            OnePosition = possibiliter.get(rand.nextInt(possibiliter.size()));
-            OnePosition.setValeur(newvalue);
-        }
-        return true;
-    }
     public void Start(){ //méthode pour commencer le jeu
-        
-            System.out.print("Veuillez choisir votre direction:"
-                    + " - d " + " - g " + " - h " + " - b "+ " - G " + " - D ");
-            Scanner sc = new Scanner(System.in);
+            System.out.println("|___________Jeu 2048__________|\n");
             
-                    String s = sc.nextLine();
-            if (!(s.equals("d") || s.equals("droite")
-                    || s.equals("g") || s.equals("gauche")
-                    || s.equals("h") || s.equals("haut")
-                    || s.equals("b") || s.equals("bas"))) {
+            this.init_game();
+            System.out.println("\n");
+            System.out.print("Veuillez choisir votre direction =>"
+                    + " - d " + " - g " + " - h " + " - b "+ " - G " + " - D "
+                    + ": ");
+            Scanner sc = new Scanner(System.in);
+            System.out.println("\n");
+            String s = sc.nextLine();
+            
+           
+            if (!(s.equals("d") 
+                    || s.equals("g") 
+                    || s.equals("h") 
+                    || s.equals("b")
+                    ||s.equals("D")
+                    ||s.equals("G"))) {
+                
                 System.out.println("Vous devez ecrire "
                         + "d pour Droite "
                         + "\n"
@@ -114,7 +105,7 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
                         + "b pour Bas "
                         + "\n"
                         + "G pour profondeur a gauche "
-                        + ""
+                        + "\n"
                         + "D pour pofondeur a droite");
             } else {
                 int direction;
@@ -145,17 +136,9 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
                 
             }
         }
-
+    //Autre méthode pour afficher le plateau 
     public String toString() {
         StringJoiner output = new StringJoiner("");
-        /*for (int i = 0; i < gridSize; i++) {
-            for (int j = 0; j < gridSize; j++) {
-                
-                Cell EnCours = new Cell(i, j,v);
-                output.add(String.format("[%3d]", EnCours.getValeur()));
-            }
-            output.add("\n");
-        }*/
         for(Grid grille1 : grille) {
             grille1 = new Grid();
             int[][] tab1= new int[gridSize][gridSize];
@@ -167,11 +150,15 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
             output.add("\n");
             
         }
-        return output.toString();
-        
-       
+        return output.toString();  
     }
-
+    public void turn(int direction){
+        
+    }
+    public void fusion_all(){
+        
+        
+    }
         
 }
 

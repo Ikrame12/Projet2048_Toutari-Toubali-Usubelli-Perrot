@@ -19,7 +19,6 @@ public class Launch implements Parametres { //classe qui va lancer le jeu avec l
     public static void main(String[] args) {
        // TODO code application logic here
        Game_2048 jeu = new Game_2048();
-       jeu.init_game();
        jeu.Start();
        
     }
