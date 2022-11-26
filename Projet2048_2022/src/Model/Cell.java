@@ -20,6 +20,14 @@ import java.util.StringJoiner;
  private Grid grille;// on déclare une grille de type Grid3D en privée
 
  //Constructeur de la classe "Cell"
+ 
+ /**
+  * 
+  * @param abs correspond a l'abcisse de la case
+  * @param ord correspond a l'odonnee de la case 
+  * @param v   correspond a la valeur dans la case
+  */
+ 
  public Cell(int abs, int ord, int v){
  this.x=abs; //déplacement horizontal
  this.y=ord; //déplacement vertical 
