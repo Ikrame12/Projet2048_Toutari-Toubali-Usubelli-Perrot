@@ -156,15 +156,9 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
         }
         return output.toString();  
     }
-    public void turn(int direction){
-        
-    }
-    public void fusion_all(){
-        
-        
-    }
-        
-}
+   
+    } 
+
 
     
 

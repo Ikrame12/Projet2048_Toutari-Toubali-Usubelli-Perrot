@@ -62,7 +62,42 @@ import java.util.StringJoiner;
  public int getValeur(){
  return this.valeur;
  }
-
+public Cell getVoisinDirect(int direction) {
+        if (direction == UP) {
+            for (int i = this.y - 1; i >= 0; i--) {
+                for (Cell c : grille.getCells()) {
+                    if (c.getX() == this.x && c.getY() == i) {
+                        return c;
+                    }
+                }
+            }
+        } else if (direction == DOWN) {
+            for (int i = this.y + 1; i < gridSize; i++) {
+                for (Cell c : grille.getCells()) {
+                    if (c.getX() == this.x && c.getY() == i) {
+                        return c;
+                    }
+                }
+            }
+        } else if (direction == LEFT) {
+            for (int i = this.x - 1; i >= 0; i--) {
+                for (Cell c : grille.getCells()) {
+                    if (c.getX() == i && c.getY() == this.y) {
+                        return c;
+                    }
+                }
+            }
+        } else if (direction == LEFT) {
+            for (int i = this.x + 1; i < gridSize; i++) {
+                for (Cell c : grille.getCells()) {
+                    if (c.getX() == i && c.getY() == this.y) {
+                        return c;
+                    }
+                }
+            }
+        }
+        return null;
+    }
      @Override
 public boolean equals(Object obj){
     if(obj instanceof Cell){

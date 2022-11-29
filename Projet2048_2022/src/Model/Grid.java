@@ -139,7 +139,88 @@ public class Grid implements Parametres{
         }
     }
      
-     
+    public boolean lanceurDeplacerCases(int direction) {
+        Cell[] extremites = this.getCellBorders(direction);
+        deplacement = false; // pour vérifier si on a bougé au moins une case après le déplacement, avant d'en rajouter une nouvelle
+        for (int i = 0; i < gridSize; i++) {
+            switch (direction) {
+                case UP:
+                    this.deplacerCasesRecursif(extremites, i, direction, 0);
+                    break;
+                case DOWN:
+                    this.deplacerCasesRecursif(extremites, i, direction, 0);
+                    break;
+                case LEFT:
+                    this.deplacerCasesRecursif(extremites, i, direction, 0);
+                    break;
+                default:
+                    this.deplacerCasesRecursif(extremites, i, direction, 0);
+                    break;
+            }
+        }
+        return deplacement;
+    }
+
+    
+
+    private void deplacerCasesRecursif(Cell[] extremites, int rangee, int direction, int compteur) {
+        if (extremites[rangee] != null) {
+            if ((direction == UP && extremites[rangee].getY() != compteur)
+                    || (direction == DOWN && extremites[rangee].getY() != gridSize - 1 - compteur)
+                    || (direction == LEFT&& extremites[rangee].getX() != compteur)
+                    || (direction == RIGHT && extremites[rangee].getX() != gridSize - 1 - compteur)) {
+                this.Cells.remove(extremites[rangee]);
+                switch (direction) {
+                    case UP:
+                        extremites[rangee].setY(compteur);
+                        break;
+                    case DOWN:
+                        extremites[rangee].setY(gridSize - 1 - compteur);
+                        break;
+                    case LEFT:
+                        extremites[rangee].setX(compteur);
+                        break;
+                    default:
+                        extremites[rangee].setX(gridSize - 1 - compteur);
+                        break;
+                }
+                this.Cells.add(extremites[rangee]);
+                deplacement = true;
+            }
+            Cell voisin = extremites[rangee].getVoisinDirect(-direction);
+            if (voisin != null) {
+                if (extremites[rangee].valeurEgale(voisin)) {
+                    this.fusion(extremites[rangee]);
+                    extremites[rangee] = voisin.getVoisinDirect(-direction);
+                    this.Cells.remove(voisin);
+                    this.deplacerCasesRecursif(extremites, rangee, direction, compteur + 1);
+                } else {
+                    extremites[rangee] = voisin;
+                    this.deplacerCasesRecursif(extremites, rangee, direction, compteur + 1);
+                }
+            }
+        }
+    }
+
+    /*
+    * Si direction = HAUT : retourne les 4 cases qui sont le plus en haut (une pour chaque colonne)
+    * Si direction = DROITE : retourne les 4 cases qui sont le plus à droite (une pour chaque ligne)
+    * Si direction = BAS : retourne les 4 cases qui sont le plus en bas (une pour chaque colonne)
+    * Si direction = GAUCHE : retourne les 4 cases qui sont le plus à gauche (une pour chaque ligne)
+    * Attention : le tableau retourné peut contenir des null si les lignes/colonnes sont vides
+     */
+    
+    public void victory() {
+        System.out.println("Bravo ! Vous avez atteint " + this.valeurMax);
+        System.exit(0);
+    }
+
+    public void gameOver() {
+        System.out.println("La partie est finie. Votre score est " + this.valeurMax);
+        System.exit(1);
+    }
+
+
     
      @Override
     public String toString() {
