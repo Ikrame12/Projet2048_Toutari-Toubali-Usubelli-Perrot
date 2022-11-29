@@ -19,20 +19,31 @@ import java.util.logging.Logger;
  *
  * @author hp
  */
+
+/**
+ * Représente une grille
+ * 
+ */
 public class Grid implements Parametres{
-
-
-        
-    
-    //classe qui représente une grille 
     final HashSet<Cell> Cells = new HashSet<>();
     private int valeurMax = 0;
     boolean deplacement = false ;
- //constructeur
+ 
+    
+    /**
+     * Constructeur d'une grille
+     */
     public void Grid() {
           setCells(Cells);
           deplacement = false ;
     }
+    
+    
+    /**
+     * Setter
+     * Permet de demander un changement d'état du paramètre "Cells"
+     * @param Cells plusieurs cases 
+     */
     public void setCells(HashSet<Cell> Cells){
         for(int i=0;i< gridSize;i++) {
                 for(int j=0;j<gridSize;j++){
@@ -50,15 +61,28 @@ public class Grid implements Parametres{
     }
     }
     /*  Getters  */
+    /**
+     * Getter 
+     * Permet l'accès en lecture à la valeur Cells
+     * @return 
+     */
     public HashSet<Cell> getCells() {
         return Cells;
     }
-
+/**
+ * Getter
+  * Permet l'accès en lecture à la valeur valeurMax 
+  * @return retourne la valeur "valeurMax"
+  */
     public int getValeurMax() {
         return valeurMax;
     }
 
-
+/**
+ * Getter
+ * Permet l'accès en lecture à la valeur "LOG"
+ * @return retourne LOG
+ */
     public static Logger getLOG() {
         return LOG;
     }
@@ -66,20 +90,34 @@ public class Grid implements Parametres{
     private static final Logger LOG = Logger.getLogger(Grid.class.getName());
     
     /* Setters */
+    /**
+     * Permet de demander un changement d'état du paramètre "valeurMax"
+     * @param valeurMax 
+     */
     public void setValeurMax(int valeurMax) {
         this.valeurMax = valeurMax;
     }
 
  
     //Méthodes des mouvements 
+    
+    /**
+     * Fusionne 2 cases
+     * (Utile pour les mouvements)
+     * @param c correspond à une case
+     */
     private void fusion(Cell c) {
      c.setValeur(c.getValeur() * 2);
      if (this.valeurMax < c.getValeur()) {
      this.valeurMax = c.getValeur();
         }
     }
-    // déterminer les extrémités d'une grille 
     
+    /**
+     * Détermine les extrémités d'une grille
+     * @param direction correspond à la direction choisie
+     * @return les extrémités d'une grille
+     */
     public Cell[] getCellBorders(int direction) {
         Cell[] result = new Cell[gridSize];
         for (Cell c : this.Cells) {
@@ -110,6 +148,11 @@ public class Grid implements Parametres{
         }
         return result;
     }
+    
+    /**
+     * Création d'une nouvelle case 
+     * @return vrai si la valeur max est dans la case 
+     */
      public boolean newCell() {
         //on ajoute un nombre aléatoire si y a des cases libres 
         if (this.getCells().size() < gridSize * gridSize) {
@@ -140,6 +183,10 @@ public class Grid implements Parametres{
     }
      
      
+     /**
+      * Affichage des grilles 
+      * @return les grilles
+      */
     
      @Override
     public String toString() {

@@ -21,7 +21,12 @@ import javax.swing.JOptionPane;
  *
  * @author hp
  */
-public class Game_2048 implements Parametres { //classe qui va initialser ce qu'il va se passer lors du jeu 
+
+/**
+ * Initialise ce qu'il va se passer lors du jeu
+ * 
+ */
+public class Game_2048 implements Parametres {  
     Grid[] grille ;
     Grid3D g ;  
     long score;
@@ -38,28 +43,38 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
  
     /*Display*/
     
-    public Game_2048(){ //initialisation de la grille de jeu 3D (tableau contenant les 3 grilles)
+    /**
+     * Initialisation de la grille de jeu 3D : tableau contenant les 3 grilles 
+     */
+    public Game_2048(){ 
     grille = new Grid[gridSize];
     g = new Grid3D(grille);
      
     }   
 
+    /**
+     * Affiche le plateau du jeu et ajoute une case libre aléatoirement
+     */
     @SuppressWarnings(value = "empty-statement")
-    public void DisplayPlateau() { //méthode qui affiche le plateau du jeu et ajoute une case libre aléatoirement 
+    public void DisplayPlateau() {  
 
         for(Grid grille1 : grille)  {
             grille1 = new Grid();// on crée
-            boolean b = grille1.newCell(); // on choisit une cass
+            boolean b = grille1.newCell(); // on choisit une case
             int[][] tab1= new int[gridSize][gridSize];//on crée le tableau d'affichage
-            for(Cell c : grille1.getCells()) { //parcourir le hashset 
-                tab1[c.getY()][c.getX()] = c.getValeur();// récuperer la valeur
+            for(Cell c : grille1.getCells()) { //on parcourt le hashset 
+                tab1[c.getY()][c.getX()] = c.getValeur();// on récupère la valeur
             };
 
             System.out.print(Arrays.deepToString(tab1) +"\t"+"\n");
         }
     } 
     
-     public  void init_game() { //méthode pour initialiser les différentes cases
+    
+    /**
+     * Méthode pour initialiser les différentes cases 
+     */
+     public  void init_game() { 
         for (Grid grille1 : grille) {
             grille1= new Grid();
             for(int i=0;i< gridSize;i++) {
@@ -74,8 +89,12 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
         DisplayPlateau();
         
       }
-                    
-    public void Start(){ //méthode pour commencer le jeu
+      
+     /**
+      * Méthode pour commencer le jeu 
+      */
+     
+    public void Start(){ 
             System.out.println("|___________Jeu 2048__________|\n");
             
             this.init_game();
@@ -136,7 +155,10 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
                 
             }
         }
-    //Autre méthode pour afficher le plateau 
+    /**
+     * Autre méthode pour afficher le plateau
+     * @return ?? 
+     */ 
     public String toString() {
         StringJoiner output = new StringJoiner("");
         for(Grid grille1 : grille) {
@@ -152,9 +174,16 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
         }
         return output.toString();  
     }
+    
+    /**
+     * 
+     * @param direction correspond à la direction choisie
+     */
     public void turn(int direction){
         
     }
+    
+
     public void fusion_all(){
         
         
