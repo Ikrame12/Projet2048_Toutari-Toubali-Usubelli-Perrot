@@ -9,7 +9,11 @@ package Model;
  *
  * @author ikrame
  */
-public interface Parametres { //initialisation des paramètres de déplacement
+
+/**
+ * Initialisation des paramètres de déplacement
+ */
+public interface Parametres { 
     static final int UP = 1;
     static final int RIGHT = 2;
     static final int DOWN  = -1;
@@ -17,5 +21,5 @@ public interface Parametres { //initialisation des paramètres de déplacement
     static final int gridSize = 3;
     static final int PRO_LEFT = 5; 
     static final int PRO_RIGHT = 2; 
-    static final int OBJECTIF = 2048;  //test 
+    static final int OBJECTIF = 2048;   
 }

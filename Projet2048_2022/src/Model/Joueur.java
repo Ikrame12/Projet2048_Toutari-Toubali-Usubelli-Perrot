@@ -9,6 +9,10 @@ package Model;
  *
  * @author ikrame
  */
+
+/**
+ * Initialisation d'un joueur
+ */
 public class Joueur {
     
     private final String pseudo; 

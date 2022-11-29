@@ -11,11 +11,16 @@ import java.util.Scanner;
  *
  * @author ikrame
  */
-public class Launch implements Parametres { //classe qui va lancer le jeu avec les différentes méthodes du package
+
+/**
+ * Lancement dun jeu avec les différentes méthodes du package
+ */
+public class Launch implements Parametres { 
 
     /**
      * @param args the command line arguments
      */
+   
     public static void main(String[] args) {
        // TODO code application logic here
        Game_2048 jeu = new Game_2048();

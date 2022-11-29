@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 
 /**
- * Représente une grille
+ * Représentation une grille
  * 
  */
 public class Grid implements Parametres{

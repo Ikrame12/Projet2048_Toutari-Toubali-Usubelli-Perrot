@@ -14,21 +14,26 @@ import java.util.Scanner;
  *
  * @author ikrame
  */
-public class Grid3D implements Parametres { //classe pour initialiser la grille 3D
+
+/**
+ * Initialisation de la grille 3D
+ */
+public class Grid3D implements Parametres { 
     
     private Grid[] Plateau = new Grid[gridSize];
     
-    
-    
+   
     private final int valeurMax = 0;
 
-    public Grid3D(Grid[] Plateau) { //méthode pour afficher le plateau
+    /**
+     * Affichage du plateau
+     * @param Plateau correspond au plateau de jeu
+     */
+    public Grid3D(Grid[] Plateau) { 
         this.Plateau = Plateau ;
     }
 
    
-
-    
     public void DisplayGrid() { 
         for (Grid Plateau1 : Plateau) {
             int[][] tableau = new int[gridSize][gridSize];
@@ -42,14 +47,21 @@ public class Grid3D implements Parametres { //classe pour initialiser la grille 
     }
     
     
-
+/**
+ * Getter 
+ * Permet l'accès en lecture à la valeur Plateau
+ * @return retroune le plateau de jeu
+ */
     public Grid[] getPlateau() {
         return Plateau;
     }
 
     
 
-  
+  /**
+   * Déplacement en profondeur
+   * @param direction correspond à la direction choisie
+   */
     public void Deplacement_Profondeur(int direction){
         if(direction == PRO_LEFT){
          //récuperer la position en cours
@@ -61,7 +73,9 @@ public class Grid3D implements Parametres { //classe pour initialiser la grille 
     }
    
 
-    //demander quelle grille
+    /**
+     * Demander au joueur dans quelle grille il souhaite jouer 
+     */
     public Grid getGrille() {
            System.out.println("Vous voulez quel grille?(1-2-3)");
            Scanner r = new Scanner(System.in);
@@ -79,9 +93,12 @@ public class Grid3D implements Parametres { //classe pour initialiser la grille 
         return null;
            
     }
+    
+    /**
+     * Affichage des 3 grilles  
+     */
     @Override
     public String toString(){
-    //afficher les 3 grilles
                 for (Grid Plateau1 : Plateau) {
             System.out.print(Plateau1);
         }
@@ -91,6 +108,12 @@ public class Grid3D implements Parametres { //classe pour initialiser la grille 
         
         return null; 
     }
+    
+    /**
+     * Getter 
+     * Permet l'accès en lecture à la valeur "valeurMax"
+     * @return retourne la valeurMax
+     */
     public int getValeurMax() {
         return valeurMax;
     }

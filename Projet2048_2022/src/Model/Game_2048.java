@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  */
 
 /**
- * Initialise ce qu'il va se passer lors du jeu
+ * Initialisation ce qu'il va se passer lors du jeu
  * 
  */
 public class Game_2048 implements Parametres {  
