@@ -5,24 +5,37 @@
  */
 package Model;
 
+import java.util.StringJoiner;
+
 /**
  *
  * @author ikrame
  */
 
     public class Cell implements Parametres { 
- private int x, y, valeur;    
- private Grid3D grille;// on déclare une grille de type Grid3D en privée
+    
+        int x;
+        int y;    
+    private int valeur;
+ private Grid grille;// on déclare une grille de type Grid3D en privée
 
  //Constructeur de la classe "Cell"
+ 
+ /**
+  * 
+  * @param abs correspond a l'abcisse de la case
+  * @param ord correspond a l'odonnee de la case 
+  * @param v   correspond a la valeur dans la case
+  */
+ 
  public Cell(int abs, int ord, int v){
- this.x=abs;
- this.y=ord;
- this.valeur=v;
+ this.x=abs; //déplacement horizontal
+ this.y=ord; //déplacement vertical 
+ this.valeur=v; //valeur de la case
  }
  
  //Création des setters et des getters
- public void setGrille(Grid3D g){
+ public void setG(Grid g){
  this.grille=g;
  }
  
@@ -61,67 +74,32 @@ public boolean equals(Object obj){
     }
 }
 
-public int hashCode(){
+    /**
+     *
+     * @return
+     */
+    @Override
+public int hashCode(){ //déclaration du hashcode
 return this.x*7 + this.y*13;
 }
 
- public boolean valeurEgale(Cell c){
+ public boolean valeurEgale(Cell c){ //méthode pour indiquer que faire si valeur égale entre 2 cases
  if (c != null){
  return this.valeur ==c.valeur;
  }else {
  return false;
  }
  }
- //comentaires
- public Cell getVoisinDirect(int direction){
-     if (direction == HAUT){
-     for(int i = this.y -1 ; i>=0; i--){
-       for (Cell c : grille.getGrille()) {
-                    if (c.getX() == this.x && c.getY() == i){ 
-     return c;
-     }
-     }    
-     }
-     }
-     else if (direction == BAS){
-             for(int i= this.y +1; i<TAILLE; i++){
-             for (Cell c : grille.getGrille()){
-             if(c.getX()== this.x && c.getY() == i){
-             return c;
-             }
-             }
-             }
-             }
-     else if (direction == GAUCHE){
-     for(int i = this.x -1; i>=0; i--){
-     for (Cell c : grille.getGrille()){
-     if (c.getX()==i && c.getY()== this.y){
-     return c;
-     }
-     }
-     }
-     }
-     else if (direction == DROITE){
-     for (int i = this.x +1 ; i<TAILLE; i++){
-     for (Cell c : grille.getGrille()){
-     if (c.getX()== i && c.getY() == this.y){
-     return c;
-             }
-     }
-     }
-     }
+
  
- return null;
- }
  
  
  
  // Redéfinition de la méthode String
- @Override
- public String toString(){
- return "Case("+this.x + "," +this.y +"," + this.valeur + ")";
- }
- 
+public String toString() {
+        return "Case(" + this.x + "," + this.y + "," + this.valeur + ")";
+    }
+
 }
 
 

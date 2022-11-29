@@ -5,6 +5,10 @@
 package Model;
 
 
+import Model.Cell;
+import Model.Grid;
+import Model.Grid3D;
+import Model.Parametres;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -40,7 +44,7 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
     
     public Game_2048(){ //initialisation de la grille de jeu 3D (tableau contenant les 3 grilles)
     grille = new Grid[gridSize];
-    Grid3D g = new Grid3D();
+    g = new Grid3D(grille);
      
     }   
 
@@ -74,11 +78,6 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
         DisplayPlateau();
         
       }
-     public void victory() {
-        System.out.println("Bravo ! Vous avez atteint " + grille[1].getValeurMax()
-                );
-        System.exit(0);
-    }
                     
     public void Start(){ //méthode pour commencer le jeu
             System.out.println("|___________Jeu 2048__________|\n");
@@ -138,33 +137,34 @@ public class Game_2048 implements Parametres { //classe qui va initialser ce qu'
                         direction = 2;
                         break;
                 }
-                for(int i=0;i<gridSize;i++){
-                    
-                boolean b2 = grille[i].lanceurDeplacerCases(direction);
-                if (b2) {
-                   boolean b = grille[i].newCell();
-                    
-                }
-                }
-                System.out.println(g);
-                if (g.getValeurMax()>=OBJECTIF) victory();
+                
             }
+        }
+    //Autre méthode pour afficher le plateau 
+    public String toString() {
+        StringJoiner output = new StringJoiner("");
+        for(Grid grille1 : grille) {
+            grille1 = new Grid();
+            int[][] tab1= new int[gridSize][gridSize];
+            for(Cell c : grille1.getCells()) {
+                tab1[c.getY()][c.getX()] = c.getValeur();
+                output.add(String.format("[%3d]",c.getValeur()));
+                
+            };
+            output.add("\n");
             
         }
-   
-    public void gameOver() {
-        System.out.println("La partie est finie. Votre score est " + grille[1].getValeurMax()
-                );
-        System.exit(1);
-    }       
+        return output.toString();  
+    }
+    public void turn(int direction){
+        
+    }
+    public void fusion_all(){
+        
+        
+    }
+        
 }
-        
-
-
- 
-
-        
-
 
     
 
