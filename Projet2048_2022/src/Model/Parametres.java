@@ -10,10 +10,10 @@ package Model;
  * @author ikrame
  */
 public interface Parametres {
-    static final int HAUT = 1;
-    static final int DROITE = 2;
-    static final int BAS = -1;
-    static final int GAUCHE = -2;
-    static final int TAILLE = 3;
+    static final int UP = 1;
+    static final int RIGHT = 2;
+    static final int DOWN = -1;
+    static final int LEFT = -2;
+    static final int gridSize = 3;
     static final int OBJECTIF = 2048;  //test 
 }
