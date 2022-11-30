@@ -18,6 +18,10 @@ public class Launch implements Parametres {
      */
     public static void main(String[] args) {
        // TODO code application logic here
+        Grid[] grille = new Grid[3];
+        Grid3D g = new Grid3D(grille);
+        Game_2048 jeu = new Game_2048(grille, g);
+        jeu.Start();
         
     }
     

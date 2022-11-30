@@ -5,8 +5,6 @@
  */
 package Model;
 
-import java.util.StringJoiner;
-
 /**
  *
  * @author ikrame
@@ -16,7 +14,7 @@ import java.util.StringJoiner;
     
         int x;
         int y;    
-    private int valeur;
+ private int valeur;
  private Grid grille;// on déclare une grille de type Grid3D en privée
 
  //Constructeur de la classe "Cell"
@@ -110,7 +108,6 @@ public boolean equals(Object obj){
 }
 
     /**
-     *
      * @return
      */
     @Override

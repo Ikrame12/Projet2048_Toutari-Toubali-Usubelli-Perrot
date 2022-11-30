@@ -25,13 +25,12 @@ public class Grid implements Parametres{
         
     
     //classe qui représente une grille 
-    final HashSet<Cell> Cells = new HashSet<>();
+    private HashSet<Cell> Cells = new HashSet<>();
     private int valeurMax = 0;
     boolean deplacement = false ;
  //constructeur
-    public void Grid() {
-          setCells(Cells);
-          deplacement = false ;
+    public Grid() {
+        this.Cells = new HashSet<>();
     }
     public void setCells(HashSet<Cell> Cells){
         for(int i=0;i< gridSize;i++) {
@@ -160,7 +159,21 @@ public class Grid implements Parametres{
         }
         return deplacement;
     }
+    
+    
+    
+    public void victory() {
+        System.out.println("Bravo ! Vous avez atteint " + this.valeurMax);
+        System.exit(0);
+    }
 
+    public void gameOver() {
+        System.out.println("La partie est finie. Votre score est " + this.valeurMax);
+        System.exit(1);
+    }
+
+ 
+   
     
 
     private void deplacerCasesRecursif(Cell[] extremites, int rangee, int direction, int compteur) {
@@ -210,17 +223,6 @@ public class Grid implements Parametres{
     * Attention : le tableau retourné peut contenir des null si les lignes/colonnes sont vides
      */
     
-    public void victory() {
-        System.out.println("Bravo ! Vous avez atteint " + this.valeurMax);
-        System.exit(0);
-    }
-
-    public void gameOver() {
-        System.out.println("La partie est finie. Votre score est " + this.valeurMax);
-        System.exit(1);
-    }
-
-
     
      @Override
     public String toString() {

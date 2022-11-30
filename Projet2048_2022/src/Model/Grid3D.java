@@ -14,21 +14,16 @@ import java.util.Scanner;
  *
  * @author ikrame
  */
-public class Grid3D implements Parametres { //classe pour initialiser la grille 3D
+public class Grid3D implements Parametres { 
     
     private Grid[] Plateau = new Grid[gridSize];
-    
-    
-    
-    private final int valeurMax = 0;
+    private int valeurMax = 0;
 
-    public Grid3D(Grid[] Plateau) { //méthode pour afficher le plateau
-        this.Plateau = Plateau ;
+    public Grid3D(Grid[] Plateau) { 
+     this.Plateau = Plateau ;  
     }
 
-    public Grid3D() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
    
 
@@ -98,6 +93,7 @@ public class Grid3D implements Parametres { //classe pour initialiser la grille 
     public int getValeurMax() {
         return valeurMax;
     }
+
     }
 
     
