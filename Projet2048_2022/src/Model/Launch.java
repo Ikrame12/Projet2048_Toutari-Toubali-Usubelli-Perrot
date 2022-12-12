@@ -10,6 +10,8 @@ import static Model.Parametres.DROITE;
 import static Model.Parametres.GAUCHE;
 import static Model.Parametres.HAUT;
 import static Model.Parametres.OBJECTIF;
+import static Model.Parametres.PRO_LEFT;
+import static Model.Parametres.PRO_RIGHT;
 
 /**
  *
@@ -43,6 +45,10 @@ public class Launch {
                     direction = GAUCHE;
                 } else if (s.equals("h") || s.equals("haut")) {
                     direction = HAUT;
+                } else if (s.equals("Q")) {
+                    direction = PRO_LEFT;
+                } else if (s.equals("D")) {
+                    direction = PRO_RIGHT;
                 } else {
                     direction = BAS;
                 }

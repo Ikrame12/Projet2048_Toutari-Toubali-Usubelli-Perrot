@@ -15,6 +15,10 @@ public interface Parametres {
     static final int DROITE = 2;
     static final int BAS = -1;
     static final int GAUCHE = -2;
-    static final int TAILLE = 3;
+    static final int TAILLE = 4;
     static final int OBJECTIF = 2048;
+    static final int PRO_LEFT = 5; 
+    static final int PRO_RIGHT = 2;
+    static final int gridSize = 3;
+    
 }

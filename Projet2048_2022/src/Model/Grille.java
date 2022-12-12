@@ -148,7 +148,7 @@ public class Grille implements Parametres {
                 deplacement = true;
             }
             Case voisin = extremites[rangee].getVoisinDirect(-direction);
-            System.out.println("jeu2048.l2.Grille.deplacerCasesRecursif() :voisin: "+voisin);
+//            System.out.println("jeu2048.l2.Grille.deplacerCasesRecursif() :voisin: "+voisin);
             if (voisin != null) {
                 if (extremites[rangee].valeurEgale(voisin)) {
                     this.fusion(extremites[rangee]);
