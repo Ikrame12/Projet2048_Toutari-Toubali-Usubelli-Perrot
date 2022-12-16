@@ -15,7 +15,7 @@ import static Model.Parametres.PRO_RIGHT;
 
 /**
  *
- * @author HOUCINE
+ * @author Hajar
  */
 public class Launch {
     

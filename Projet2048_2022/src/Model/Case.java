@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Sylvain
+ * @author Hajar
  */
 public class Case implements Parametres {
 

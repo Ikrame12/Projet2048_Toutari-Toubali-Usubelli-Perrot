@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author ikrame
+ * @author Hajar
  */
 public class Player {
     

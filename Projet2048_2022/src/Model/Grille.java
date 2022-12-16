@@ -14,7 +14,7 @@ import java.util.Random;
 
 /**
  *
- * @author Sylvain
+ * @author Hajar
  */
 public class Grille implements Parametres {
 

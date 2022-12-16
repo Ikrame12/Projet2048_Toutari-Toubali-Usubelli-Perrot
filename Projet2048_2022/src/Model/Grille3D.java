@@ -13,7 +13,7 @@ import static Model.Parametres.TAILLE;
 
 /**
  *
- * @author HOUCINE
+ * @author Hajar
  */
 public class Grille3D implements Parametres { //classe pour initialiser la grille 3D
 
