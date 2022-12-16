@@ -12,10 +12,15 @@ import static Model.Parametres.HAUT;
 import static Model.Parametres.OBJECTIF;
 import static Model.Parametres.PRO_LEFT;
 import static Model.Parametres.PRO_RIGHT;
+import application.Main;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.stage.Stage;
+import javax.swing.SwingUtilities;
 
 /**
  * 
- * Lancement du jeu grâce 
+ * Lancement du jeu 
  */
 public class Launch {
     public static void main(String[] args) {
@@ -60,6 +65,16 @@ public class Launch {
                 if (g.getValeurMax()>=OBJECTIF) g.victory();
             }
         }
-//        g.gameOver();
+                SwingUtilities.invokeLater(() -> {
+                    Main m = new Main();
+                    Stage stage = null;
+                    try {
+                        m.start(stage);
+                    } catch (Exception ex) {
+                        Logger.getLogger(Launch.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+        });
+
     }
 }
+
