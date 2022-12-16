@@ -12,9 +12,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 
+
+
 /**
  *
- * @author Hajar
+ * Représentation d'une grille
  */
 public class Grille implements Parametres {
 
@@ -22,6 +24,9 @@ public class Grille implements Parametres {
     private int valeurMax = 0;
     private boolean deplacement;
 
+    /**
+     * Constructeur d'une grille
+     */
     public Grille() {
         this.grille = new HashSet<>();
     }
@@ -38,7 +43,7 @@ public class Grille implements Parametres {
         }
         return result;
     }
-    
+
     public String toHTML() {
         int[][] tableau = new int[TAILLE][TAILLE];
         for (Case c : this.grille) {
@@ -71,8 +76,8 @@ public class Grille implements Parametres {
                         System.out.println("++ HCN partieFinie :this.grille.size(): ++ "+this.grille.size());
                         System.out.println("++ HCN partieFinie :c.getVoisinDirect(i): ++ "+c.getVoisinDirect(i));
                         if (c.valeurEgale(c.getVoisinDirect(i))) {
-                            
-                            
+
+
                             return false;
                         }
                     }
@@ -116,8 +121,15 @@ public class Grille implements Parametres {
         deplacement = true;
     }
 
+    /**
+     *
+     * @param extremites extrémités d'une grille
+     * @param rangee
+     * @param direction choisie par le joueur
+     * @param compteur
+     */
     private void deplacerCasesRecursif(Case[] extremites, int rangee, int direction, int compteur) {
-        
+
         if (extremites[rangee] != null) {
             System.out.println("jeu2048.l2.Grille.deplacerCasesRecursif() :extremites[rangee]: "+extremites[rangee]);
             if ((direction == HAUT && extremites[rangee].getY() != compteur)
@@ -163,12 +175,16 @@ public class Grille implements Parametres {
         }
     }
 
-    /*
-    * Si direction = HAUT : retourne les 4 cases qui sont le plus en haut (une pour chaque colonne)
-    * Si direction = DROITE : retourne les 4 cases qui sont le plus à droite (une pour chaque ligne)
-    * Si direction = BAS : retourne les 4 cases qui sont le plus en bas (une pour chaque colonne)
-    * Si direction = GAUCHE : retourne les 4 cases qui sont le plus à gauche (une pour chaque ligne)
-    * Attention : le tableau retourné peut contenir des null si les lignes/colonnes sont vides
+
+    /**
+     * Détermine les extrémités d'une case
+     * @param direction choisie par le joueur
+     * Si direction = HAUT : retourne les 4 cases qui sont le plus en haut (une pour chaque colonne)
+     * Si direction = DROITE : retourne les 4 cases qui sont le plus à droite (une pour chaque ligne)
+     * Si direction = BAS : retourne les 4 cases qui sont le plus en bas (une pour chaque colonne)
+     * Si direction = GAUCHE : retourne les 4 cases qui sont le plus à gauche (une pour chaque ligne)
+     * Attention : le tableau retourné peut contenir des null si les lignes/colonnes sont vides
+     * @return les extrémités d'une grille
      */
     public Case[] getCasesExtremites(int direction) {
         Case[] result = new Case[TAILLE];
@@ -200,22 +216,33 @@ public class Grille implements Parametres {
             }
         }
 //        for (Case case1 : result) {
-//           System.out.println("++ HCN getCasesExtremites :result Case: ++ "+case1); 
+//           System.out.println("++ HCN getCasesExtremites :result Case: ++ "+case1);
 //        }
-        
+
         return result;
     }
 
+    /**
+     * Le joueur a perdu la partie
+     */
     public void victory() {
         System.out.println("Bravo ! Vous avez atteint " + this.valeurMax);
         System.exit(0);
     }
 
+    /**
+     * Le joueur a perdu la partie
+     */
     public void gameOver() {
         System.out.println("La partie est finie. Votre score est " + this.valeurMax);
         System.exit(1);
     }
 
+
+    /**
+     * Création d'une nouvelle case
+     * @return vrai si la valeur max est dans la case
+     */
     public boolean nouvelleCase() {
         if (this.grille.size() < TAILLE * TAILLE) {
             ArrayList<Case> casesLibres = new ArrayList<>();
