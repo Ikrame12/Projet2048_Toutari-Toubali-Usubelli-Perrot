@@ -7,8 +7,8 @@
 package Model;
 
 /**
- *
- * @author Hajar
+ * 
+  * Initialisation des paramètres de déplacement
  */
 public interface Parametres {
     static final int HAUT = 1;

@@ -11,18 +11,23 @@ import java.util.Random;
 import java.util.Scanner;
 import static Model.Parametres.TAILLE;
 
+
 /**
- *
- * @author Hajar
+ * 
+ * Initialisation de la grille 3D
  */
-public class Grille3D implements Parametres { //classe pour initialiser la grille 3D
+public class Grille3D implements Parametres { 
 
     private Grille[] Plateau;// = new Grille[3];
 
     private int valeurMax = 0;
     private boolean deplacement;
 
-    public Grille3D() { //méthode pour afficher le plateau
+    
+ /**
+  * Affichage du plateau 
+  */
+    public Grille3D() { 
         //System.out.println("jeu2048.l2.Grille3D.<init>() this. "+this.Plateau.toString());
         Grille grille1 = new Grille();
         Grille grille2 = new Grille();
@@ -34,6 +39,11 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         //System.out.println("jeu2048.l2.Grille3D.<init>() this. "+this.Plateau[0].toString());
     }
 
+    
+    /**
+     * Affichage des grilles 
+     * @return les grilles 
+     */
     @Override
     public String toString() {
         String result = "";
@@ -63,24 +73,18 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         return result;
     }
 
-    public void DisplayGrid() {
-        for (Grille Plateau1 : Plateau) {
-            int[][] tableau = new int[3][3];
-            Plateau1.getGrille().forEach(c -> {
-                tableau[c.getY()][c.getX()] = c.getValeur();
-            });
-            for (int[] tableau1 : tableau) {
-                Arrays.toString(tableau1);
-            }
-            System.out.print("\n");
-        }
-
-    }
-
+    /**
+     * Getter
+     * @return 
+     */
     public Grille[] getPlateau() {
         return Plateau;
     }
 
+    /**
+     * Déplacement en profondeur
+     * @param direction choisie par le joueur
+     */
     public void Deplacement_Profondeur(int direction) {
         if (direction == PRO_LEFT) {
             //récuperer la position en cours
@@ -91,9 +95,12 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         }
     }
 
-    //demander quelle grille
+    /**
+     * Demander au joueur avec quelle grille il souhaite jouer
+     * @return la grille avec laquelle le joueur veut jouer
+     */
     public Grille getGrille() {
-        System.out.println("Vous voulez quel grille?(1-2-3)");
+        System.out.println("Avec quelle grille souhaitez-vous jouer ? (1, 2 ou 3)");
         Scanner r = new Scanner(System.in);
         //choix de grille
         int g = r.nextInt();
@@ -117,10 +124,21 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
 //
 //        return null;
 //    }
+    
+   /**
+  * Getter
+  * Permet l'accès en lecture à la valeur valeurMax 
+  * @return retourne la valeur "valeurMax"
+  */
     public int getValeurMax() {
         return valeurMax;
     }
 
+    /**
+     * 
+     * @param direction choisie par le joueur
+     * @return vrai si on a bougé après le déplacement, faux sinon
+     */
     public boolean lanceurDeplacerCases(int direction) {
         Case[][] extremites = this.getCasesExtremites(direction);
         deplacement = false; // pour vérifier si on a bougé au moins une case après le déplacement, avant d'en rajouter une nouvelle
@@ -152,6 +170,11 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         return deplacement;
     }
 
+    /**
+     * Création d'une nouvelle case
+     * @return vrai si la case est disponible pour générer un 2 ou un 4
+     */
+    
     public boolean newCell() {
 
         boolean[] newCell3D = new boolean[gridSize];
@@ -194,6 +217,11 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         return true;
     }
 
+    
+    /**
+     * Savoir si la partie est finie 
+     * @return vrai si la partie est finie
+     */
     public boolean partieFinie() {
 
         boolean[] grid3D = new boolean[gridSize];
@@ -224,6 +252,14 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         return true;
     }
 
+    /**
+     * 
+     * @param extremites extrémités d'une grille 
+     * @param rangee  la ligne de déplacement 
+     * @param direction choisie par le joueur
+     * @param compteur donne le nombre de cases avec des extrémités 
+     * @param index 
+     */
     private void deplacerCasesRecursif(Case[] extremites, int rangee, int direction, int compteur, int index) {
         if (extremites[rangee] != null) {
             if ((direction == HAUT && extremites[rangee].getY() != compteur)
@@ -269,7 +305,12 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
             }
         }
     }
-//    
+    
+/**
+    * Détermine les cases qui ont des extrémités
+    * @param direction choisie par le joueur
+     * @return les extrémités d'une case
+    */
 
     public Case[][] getCasesExtremites(int direction) {
         Case[][] result = new Case[gridSize][gridSize];
@@ -312,6 +353,11 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         return result;
     }
 
+      /**
+     * Fusionne 2 cases 
+     * (utile pour les mouvements)
+     * @param c correspond à une case
+     */
     private void fusion(Case c) {
         c.setValeur(c.getValeur() * 2);
         if (this.valeurMax < c.getValeur()) {
@@ -320,11 +366,17 @@ public class Grille3D implements Parametres { //classe pour initialiser la grill
         deplacement = true;
     }
 
+    /**
+     * Message pour dire que le joueur a perdu
+     */
     public void gameOver() {
         System.out.println("La partie est finie. Votre score est " + this.valeurMax);
         System.exit(1);
     }
 
+    /**
+     * Message pour dire que le joueur a gagné
+     */
     public void victory() {
         System.out.println("Bravo ! Vous avez atteint " + this.valeurMax);
         System.exit(0);

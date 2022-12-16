@@ -14,11 +14,10 @@ import static Model.Parametres.PRO_LEFT;
 import static Model.Parametres.PRO_RIGHT;
 
 /**
- *
- * @author Hajar
+ * 
+ * Lancement du jeu grâce 
  */
 public class Launch {
-    
     public static void main(String[] args) {
         
         

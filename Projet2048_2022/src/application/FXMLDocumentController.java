@@ -22,7 +22,6 @@ import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
- * @author hp
  */
 public class FXMLDocumentController implements Initializable {
     private Grille3D grid;

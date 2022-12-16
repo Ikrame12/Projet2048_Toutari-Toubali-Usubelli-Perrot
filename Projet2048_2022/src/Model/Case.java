@@ -10,10 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-/**
- *
- * @author Sylvain
- */
+
 /**
  * Initialisation d'une case
  *
@@ -207,8 +204,8 @@ public class Case implements Parametres {
   /**
    *
    * @param direction choisie par le joueur (gauche / droite / haut / bas / profondeur gauche / profondeur droite)
-   * @param index
-   * @param rangee
+   * @param index référence de la grille 
+   * @param rangee la ligne de déplacement 
    * @return la case voisine à la case dans laquelle le joueur se trouve en fonction de la direction qu'il a choisi.
    */
 

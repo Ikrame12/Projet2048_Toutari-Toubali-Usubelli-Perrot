@@ -31,6 +31,10 @@ public class Grille implements Parametres {
         this.grille = new HashSet<>();
     }
 
+    /**
+     * Affichage des grilles 
+     * @return les grilles 
+     */
     @Override
     public String toString() {
         int[][] tableau = new int[TAILLE][TAILLE];
@@ -44,27 +48,27 @@ public class Grille implements Parametres {
         return result;
     }
 
-    public String toHTML() {
-        int[][] tableau = new int[TAILLE][TAILLE];
-        for (Case c : this.grille) {
-            tableau[c.getY()][c.getX()] = c.getValeur();
-        }
-        String result = "<html>";
-        for (int i = 0; i < tableau.length; i++) {
-            result += Arrays.toString(tableau[i]) + "<br/>";
-        }
-        result += "</html>";
-        return result;
-    }
-
+ 
+/**
+ * 
+ * @return une grille
+ */
     public HashSet<Case> getGrille() {
         return grille;
     }
 
+    /**
+     * Getter 
+     * Permet l'accès en lecture à la valeur "valeurMax"
+     * @return la plus grand valeur de la grille
+     */
     public int getValeurMax() {
         return valeurMax;
     }
-
+/**
+ * 
+ * @return vrai si la partie est finie, faux sinon
+ */
     public boolean partieFinie() {
         if (this.grille.size() < TAILLE * TAILLE) {
             System.out.println("++ HCN partieFinie :this.grille.size(): ++ "+this.grille.size());
@@ -86,7 +90,11 @@ public class Grille implements Parametres {
         }
         return true;
     }
-
+/**
+ * 
+ * @param direction choisie par le joueur
+ * @return vrai si on a bougé après le déplacement, faux sinon
+ */
     public boolean lanceurDeplacerCases(int direction) {
         Case[] extremites = this.getCasesExtremites(direction);
         deplacement = false; // pour vérifier si on a bougé au moins une case après le déplacement, avant d'en rajouter une nouvelle
@@ -113,6 +121,11 @@ public class Grille implements Parametres {
         return deplacement;
     }
 
+    /**
+     * Fusionne 2 cases 
+     * (utile pour les mouvements)
+     * @param c correspond à une case
+     */
     private void fusion(Case c) {
         c.setValeur(c.getValeur() * 2);
         if (this.valeurMax < c.getValeur()) {
@@ -124,9 +137,9 @@ public class Grille implements Parametres {
     /**
      *
      * @param extremites extrémités d'une grille
-     * @param rangee
+     * @param rangee la ligne de déplacement 
      * @param direction choisie par le joueur
-     * @param compteur
+     * @param compteur donne le nombre de cases avec des extrémités 
      */
     private void deplacerCasesRecursif(Case[] extremites, int rangee, int direction, int compteur) {
 
@@ -177,14 +190,9 @@ public class Grille implements Parametres {
 
 
     /**
-     * Détermine les extrémités d'une case
+     * Détermine les cases qui ont des extrémités
      * @param direction choisie par le joueur
-     * Si direction = HAUT : retourne les 4 cases qui sont le plus en haut (une pour chaque colonne)
-     * Si direction = DROITE : retourne les 4 cases qui sont le plus à droite (une pour chaque ligne)
-     * Si direction = BAS : retourne les 4 cases qui sont le plus en bas (une pour chaque colonne)
-     * Si direction = GAUCHE : retourne les 4 cases qui sont le plus à gauche (une pour chaque ligne)
-     * Attention : le tableau retourné peut contenir des null si les lignes/colonnes sont vides
-     * @return les extrémités d'une grille
+      * @return les extrémités d'une case
      */
     public Case[] getCasesExtremites(int direction) {
         Case[] result = new Case[TAILLE];
@@ -223,7 +231,7 @@ public class Grille implements Parametres {
     }
 
     /**
-     * Le joueur a perdu la partie
+     * Message pour dire que le joueur a perdu la partie
      */
     public void victory() {
         System.out.println("Bravo ! Vous avez atteint " + this.valeurMax);
@@ -231,7 +239,7 @@ public class Grille implements Parametres {
     }
 
     /**
-     * Le joueur a perdu la partie
+     * Message pour dire que le joueur a perdu la partie
      */
     public void gameOver() {
         System.out.println("La partie est finie. Votre score est " + this.valeurMax);
@@ -239,35 +247,5 @@ public class Grille implements Parametres {
     }
 
 
-    /**
-     * Création d'une nouvelle case
-     * @return vrai si la valeur max est dans la case
-     */
-    public boolean nouvelleCase() {
-        if (this.grille.size() < TAILLE * TAILLE) {
-            ArrayList<Case> casesLibres = new ArrayList<>();
-            Random ra = new Random();
-            int valeur = (1 + ra.nextInt(2)) * 2;
-            // on crée toutes les cases encore libres
-            for (int x = 0; x < TAILLE; x++) {
-                for (int y = 0; y < TAILLE; y++) {
-                    Case c = new Case(x, y, valeur);
-                    if (!this.grille.contains(c)) { // contains utilise la méthode equals dans Case
-                        casesLibres.add(c);
-                    }
-                }
-            }
-            // on en choisit une au hasard et on l'ajoute à la grille
-            Case ajout = casesLibres.get(ra.nextInt(casesLibres.size()));
-            ajout.setGrille(this);
-            System.out.println(ajout);
-            this.grille.add(ajout);
-            if ((this.grille.size() == 1) || (this.valeurMax == 2 && ajout.getValeur() == 4)) { // Mise à jour de la valeur maximale présente dans la grille si c'est la première case ajoutée ou si on ajoute un 4 et que l'ancien max était 2
-                this.valeurMax = ajout.getValeur();
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
+  
 }

@@ -6,8 +6,8 @@
 package Model;
 
 /**
- *
- * @author Hajar
+ * 
+ * Initialisation d'un joueur
  */
 public class Player {
     
