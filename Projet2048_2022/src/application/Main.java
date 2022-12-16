@@ -10,7 +10,12 @@ import javafx.stage.Stage;
 import javafx.application.Platform;
 public class Main extends Application {
   
-
+/**
+ * Affichage de l'interface FXML
+ * Mise en page de l'interface grâce au CSS
+ * @param stage
+ * @throws Exception 
+ */ 
     @Override
      public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Interface.fxml"));

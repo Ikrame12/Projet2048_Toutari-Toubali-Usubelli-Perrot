@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package Model;
 
 import java.util.Random;
 
-
+/**
+ * Déplacement aléatoire
+ */
 public class DeplacementAleatoire implements DeplacementStrategy {
     
     @Override

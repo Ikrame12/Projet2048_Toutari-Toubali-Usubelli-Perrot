@@ -48,7 +48,11 @@ public class FXMLDocumentController implements Initializable {
     public FXMLDocumentController() {
         this.grid = new Grille3D();
     }
-
+/**
+ * Initialisation de l'interface 
+ * @param url
+ * @param rb 
+ */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          // TODO
