@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import Model.Parametres;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +19,7 @@ import java.util.Random;
  *
  * Représentation d'une grille
  */
-public class Grille implements Parametres {
+public class Grille implements Parametres, Serializable {
 
     private final HashSet<Case> grille;
     private int valeurMax = 0;
