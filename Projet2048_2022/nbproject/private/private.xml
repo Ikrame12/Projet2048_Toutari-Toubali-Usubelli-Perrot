@@ -5,14 +5,18 @@
         <group>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/application/Main2.java</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Parametres.java</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/javamysqlconnect/JavaMySQLConnect.java</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Player.java</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Launch.java</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Game_2048.java</file>
-            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Joueur.java</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/javamysqlconnect/ConnexionBDD.java</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Grid.java</file>
-            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/css/styles.css</file>
-            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/application/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/application/FXMLDocument.fxml</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Cell.java</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Joueur.java</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/css/styles.css</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/javamysqlconnect/Utilisateur.java</file>
+            <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/application/FXMLDocumentController.java</file>
             <file>file:/C:/Users/ikram/OneDrive/Documents/GitHub/Projet2048_Toutari-Toubali-Usubelli-Perrot/Projet2048_2022/src/Model/Grid3D.java</file>
         </group>
     </open-files>

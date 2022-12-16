@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import java.sql.SQLException;
 
 /**
  *
@@ -37,8 +38,7 @@ public class Main2 extends Application {
         /*Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         Scene scene = new Scene(root);
         //boolean add = scene.getStylesheets().add("css/styles.css");
-        primaryStage.setScene(scene);
-        primaryStage.show();*/ //je ne sais pas si ça marche
+        primaryStage.setScene(scene);*/
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
@@ -49,7 +49,7 @@ public class Main2 extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
+    
     /**
      * @param args the command line arguments
      */
