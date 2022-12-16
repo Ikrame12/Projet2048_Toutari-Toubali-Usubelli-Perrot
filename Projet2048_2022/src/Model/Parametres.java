@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,15 +8,18 @@ package Model;
 
 /**
  *
- * @author ikrame
+ * @author Hajar
  */
-public interface Parametres { //initialisation des paramètres de déplacement
-    static final int UP = 1;
-    static final int RIGHT = 2;
-    static final int DOWN  = -1;
-    static final int LEFT= -2;
-    static final int gridSize = 3;
+public interface Parametres {
+    static final int HAUT = 1;
+    static final int DROITE = 2;
+    static final int BAS = -1;
+    static final int GAUCHE = -2;
+    static final int gridSize = 3 ;
+    static final int OBJECTIF = 2048;
     static final int PRO_LEFT = 5; 
-    static final int PRO_RIGHT = 2; 
-    static final int OBJECTIF = 2048;  //test 
+    static final int PRO_RIGHT = 2;
+    static final int TAILLE = 3 ;
+            
+    
 }

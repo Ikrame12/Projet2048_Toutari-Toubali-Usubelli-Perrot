@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="432.0" prefWidth="645.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FXMLDocumentController">
+   <children>
+      <Button alignment="CENTER" layoutX="273.0" layoutY="115.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" text="Start " textFill="#53250c">
+         <font>
+            <Font name="Wide Latin" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="589.0" layoutY="2.0" mnemonicParsing="false" text="Quitter">
+         <font>
+            <Font name="Rockwell" size="12.0" />
+         </font>
+      </Button>
+      <MenuBar layoutY="1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <GridPane fx:id="Grille1" alignment="CENTER" gridLinesVisible="true" layoutX="66.0" layoutY="205.0" prefHeight="174.0" prefWidth="167.0" style="-fx-background-color: white;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </GridPane>
+      <GridPane fx:id="Grille2" alignment="CENTER" gridLinesVisible="true" layoutX="421.0" layoutY="205.0" prefHeight="174.0" prefWidth="167.0" style="-fx-background-color: white;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </GridPane>
+      <GridPane fx:id="Grille11" alignment="CENTER" gridLinesVisible="true" layoutX="244.0" layoutY="205.0" prefHeight="174.0" prefWidth="167.0" style="-fx-background-color: white;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </GridPane>
+      <Pane fx:id="fond" blendMode="COLOR_BURN" layoutX="426.0" layoutY="84.0" prefHeight="61.0" prefWidth="157.0" style="-fx-background-color: black; -fx-border-color: darkbrown;">
+         <children>
+            <Label layoutX="35.0" layoutY="3.0" prefHeight="22.0" prefWidth="96.0" text="Score" textFill="#fffdfd">
+               <font>
+                  <Font name="Wide Latin" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="score" layoutX="75.0" layoutY="31.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <TextField layoutY="32.0" prefHeight="67.0" prefWidth="257.0" style="-fx-background-color: transparent;" text="2048 - 3D">
+         <font>
+            <Font name="Wide Latin" size="26.0" />
+         </font>
+      </TextField>
+      <TextArea layoutY="93.0" prefHeight="76.0" prefWidth="248.0" style="-fx-background-color: lightgrey;" text="Rejoignez les chiffres à l'intérieur du cube et &#10;accédez à la tuile 2048 !&#10;Les carrés représentent les couches du cube &#10;- bas, milieu et haut.">
+         <font>
+            <Font name="Yu Gothic Regular" size="10.0" />
+         </font>
+      </TextArea>
+      <TextArea layoutX="1.0" layoutY="400.0" prefHeight="31.0" prefWidth="645.0" text="COMMENT JOUER : Utilisez les touches fléchées et Q, E pour déplacer les tuiles. Lorsque deux tuiles portant le même numéro se touchent, elles fusionnent en une seule !">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="10.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
