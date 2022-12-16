@@ -29,7 +29,7 @@ public class Main extends Application {
 
     @Override
      public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("interfaceH.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("interface.fxml"));
         
         Scene scene = new Scene(root);
         boolean add = scene.getStylesheets().add("css/styles.css");
