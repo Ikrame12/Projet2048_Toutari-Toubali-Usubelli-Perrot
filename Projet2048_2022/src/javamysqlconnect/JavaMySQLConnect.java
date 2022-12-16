@@ -27,9 +27,16 @@ public class JavaMySQLConnect {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/Projet2048","projet2048","ProjetJava123");
-            Statement stmt=con.createStatement();  
-            ResultSet rs=stmt.executeQuery("show databases;");
-            System.out.println("Connected");  
+            System.out.println("Vous etes connecte");  
+            Statement stmt=con.createStatement();//réalise les requêtes base sur la associée à la connexion dont il dépend
+            String query = "SELECT idUtilisateur FROM utilisateur ORDER BY id_utilisateurs ASC";
+            ResultSet rs=stmt.executeQuery(
+                    query);
+            ArrayList<Integer> idUtilisateur = new ArrayList<>();
+                    while (rs.next()) {
+                        idUtilisateur.add(rs.getInt("id_utilisateurs"));
+            System.out.println("Pseudo");
+                    }
         }
         catch(Exception e)
         {
