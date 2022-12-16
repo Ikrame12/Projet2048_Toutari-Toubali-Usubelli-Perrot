@@ -70,6 +70,7 @@ public class FXMLDocumentController implements Initializable {
         ;
     }
 
+    
     /*
      * Méthodes listeners pour gérer les événements (portent les mêmes noms que
      * dans Scene Builder
